@@ -89,46 +89,43 @@
                     payload["contact_type"]=contactType;
                 }
                 if (apiColumns != null && apiColumns != "") {
-                    var txt = '{"apiColumnsList":'+apiColumns+'}';
-                    var query="";
-                    var obj = eval ("(" + txt + ")");
-                    for(var key in obj.apiColumnsList){
-                        payload[key]=obj.apiColumnsList[key];
+                    var obj = eval ("(" + apiColumns + ")");
+                    for(var key in obj){
+                        payload[key]=obj[key];
                     }
                 }
                 //Set the newly constructed payload
                 mc.setPayloadJSON(payload);
             ]]>
         </script>
-
-        <filter xpath="(not(get-property('uri.var.sysparmDisplayValue') = '' or (not(string(get-property('uri.var.sysparmDisplayValue'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmDisplayValue = '' or (not(string($ctx:uri.var.sysparmDisplayValue)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_display_value=', get-property('uri.var.sysparmDisplayValue'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_display_value=', $ctx:uri.var.sysparmDisplayValue, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmFields') = '' or (not(string(get-property('uri.var.sysparmFields'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmFields = '' or (not(string($ctx:uri.var.sysparmFields)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_fields=', get-property('uri.var.sysparmFields'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_fields=', $ctx:uri.var.sysparmFields, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmView') = '' or (not(string(get-property('uri.var.sysparmView'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmView = '' or (not(string($ctx:uri.var.sysparmView)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_view=', get-property('uri.var.sysparmView'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_view=', $ctx:uri.var.sysparmView, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmExcludeReferenceLink') = '' or (not(string(get-property('uri.var.sysparmExcludeReferenceLink'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmExcludeReferenceLink = '' or (not(string($ctx:uri.var.sysparmExcludeReferenceLink)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_exclude_reference_link=', get-property('uri.var.sysparmExcludeReferenceLink'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_exclude_reference_link=', $ctx:uri.var.sysparmExcludeReferenceLink, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmInputDisplayValue') = '' or (not(string(get-property('uri.var.sysparmInputDisplayValue'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmInputDisplayValue = '' or (not(string($ctx:uri.var.sysparmInputDisplayValue)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_input_display_value=', get-property('uri.var.sysparmInputDisplayValue'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_input_display_value=', $ctx:uri.var.sysparmInputDisplayValue, '&amp;')"/>
             </then>
         </filter>
         <call>

@@ -49,48 +49,46 @@
         </payloadFactory>
         <script language="js">
             <![CDATA[
-                    //request body param variables
-                    var serialNumber = mc.getProperty('uri.var.serialNumber');
-                    var cpuCount = mc.getProperty('uri.var.cpuCount');
-                    var manufacturer = mc.getProperty('uri.var.manufacturer');
-                    var name = mc.getProperty('uri.var.name');
-                    var operatingSystem = mc.getProperty('uri.var.operatingSystem');
-                    var diskSpace = mc.getProperty('uri.var.diskSpace');
-                    var ram = mc.getProperty('uri.var.ram');
-                    var apiColumns = mc.getProperty('uri.var.apiColumns');
-                     //Get the existing payload
-                    var payload = mc.getPayloadJSON();
-                    if (serialNumber != null && serialNumber != "") {
-                        payload["serial_number"]=serialNumber;
+                //request body param variables
+                var serialNumber = mc.getProperty('uri.var.serialNumber');
+                var cpuCount = mc.getProperty('uri.var.cpuCount');
+                var manufacturer = mc.getProperty('uri.var.manufacturer');
+                var name = mc.getProperty('uri.var.name');
+                var operatingSystem = mc.getProperty('uri.var.operatingSystem');
+                var diskSpace = mc.getProperty('uri.var.diskSpace');
+                var ram = mc.getProperty('uri.var.ram');
+                var apiColumns = mc.getProperty('uri.var.apiColumns');
+                 //Get the existing payload
+                var payload = mc.getPayloadJSON();
+                if (serialNumber != null && serialNumber != "") {
+                    payload["serial_number"]=serialNumber;
+                }
+                if (cpuCount != null && cpuCount != "") {
+                    payload["cpu_count"]=cpuCount;
+                }
+                if (manufacturer != null && manufacturer != "") {
+                    payload["manufacturer"]=manufacturer;
+                }
+                if (name != null && name != "") {
+                    payload["name"]=name;
+                }
+                if (operatingSystem != null && operatingSystem != "") {
+                    payload["operating_system"]=operatingSystem;
+                }
+                if (diskSpace != null && diskSpace != "") {
+                    payload["disk_space"]=diskSpace;
+                }
+                if (ram != null && ram != "") {
+                    payload["ram"]=ram;
+                }
+                if (apiColumns != null && apiColumns != "") {
+                    var obj = eval ("(" + apiColumns + ")");
+                    for(var key in obj){
+                        payload[key]=obj[key];
                     }
-                    if (cpuCount != null && cpuCount != "") {
-                        payload["cpu_count"]=cpuCount;
-                    }
-                    if (manufacturer != null && manufacturer != "") {
-                        payload["manufacturer"]=manufacturer;
-                    }
-                    if (name != null && name != "") {
-                        payload["name"]=name;
-                    }
-                    if (operatingSystem != null && operatingSystem != "") {
-                        payload["operating_system"]=operatingSystem;
-                    }
-                    if (diskSpace != null && diskSpace != "") {
-                        payload["disk_space"]=diskSpace;
-                    }
-                    if (ram != null && ram != "") {
-                        payload["ram"]=ram;
-                    }
-                    if (apiColumns != null && apiColumns != "") {
-                        var txt = '{"apiColumnsList":'+apiColumns+'}';
-                        var query="";
-                        var obj = eval ("(" + txt + ")");
-                        for(var key in obj.apiColumnsList){
-                            payload[key]=obj.apiColumnsList[key];
-                        }
-                    }
-                    //Set the newly constructed payload
-                    mc.setPayloadJSON(payload);
+                }
+                //Set the newly constructed payload
+                mc.setPayloadJSON(payload);
             ]]>
         </script>
         <call>

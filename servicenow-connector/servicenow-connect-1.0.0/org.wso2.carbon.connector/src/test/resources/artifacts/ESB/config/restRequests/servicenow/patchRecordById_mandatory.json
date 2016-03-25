@@ -9,5 +9,5 @@
   "active":"%s(active)",
   "approval":"%s(approval)",
   "category":"%s(category)",
-  "apiColumns": {"close_notes":"close clogard","correlation_display":"api"}
+  "apiColumns": {"close_notes":"close","correlation_display":"api"}
 }

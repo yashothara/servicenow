@@ -44,59 +44,58 @@
         <property name="uri.var.sysparmReadReplicaCategory" expression="$func:sysparmReadReplicaCategory"/>
         <property name="uri.var.KeyValuePairs" expression="$func:KeyValuePairs"/>
         <property name="uri.var.apiParameters" value=""/>
-        <filter xpath="(not(get-property('uri.var.sysparmQuery') = '' or (not(string(get-property('uri.var.sysparmQuery'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmQuery = '' or (not(string($ctx:uri.var.sysparmQuery)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_query=', get-property('uri.var.sysparmQuery'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_query=', $ctx:uri.var.sysparmQuery, '&amp;')"/>
             </then>
         </filter>
-
-        <filter xpath="(not(get-property('uri.var.sysparmDisplayValue') = '' or (not(string(get-property('uri.var.sysparmDisplayValue'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmDisplayValue = '' or (not(string($ctx:uri.var.sysparmDisplayValue)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_display_value=', get-property('uri.var.sysparmDisplayValue'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_display_value=', $ctx:uri.var.sysparmDisplayValue, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmFields') = '' or (not(string(get-property('uri.var.sysparmFields'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmFields = '' or (not(string($ctx:uri.var.sysparmFields)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_fields=', get-property('uri.var.sysparmFields'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_fields=', $ctx:uri.var.sysparmFields, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmView') = '' or (not(string(get-property('uri.var.sysparmView'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmView = '' or (not(string($ctx:uri.var.sysparmView)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_view=', get-property('uri.var.sysparmView'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_view=', $ctx:uri.var.sysparmView, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmLimit') = '' or (not(string(get-property('uri.var.sysparmLimit'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmLimit = '' or (not(string($ctx:uri.var.sysparmLimit)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_limit=', get-property('uri.var.sysparmLimit'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_limit=', $ctx:uri.var.sysparmLimit, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmOffset') = '' or (not(string(get-property('uri.var.sysparmOffset'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmOffset = '' or (not(string($ctx:uri.var.sysparmOffset)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_offset=', get-property('uri.var.sysparmOffset'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_offset=', $ctx:uri.var.sysparmOffset, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmExcludeReferenceLink') = '' or (not(string(get-property('uri.var.sysparmExcludeReferenceLink'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmExcludeReferenceLink = '' or (not(string($ctx:uri.var.sysparmExcludeReferenceLink)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_exclude_reference_link=', get-property('uri.var.sysparmExcludeReferenceLink'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_exclude_reference_link=', $ctx:uri.var.sysparmExcludeReferenceLink, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.sysparmReadReplicaCategory') = '' or (not(string(get-property('uri.var.sysparmReadReplicaCategory'))))))">
+        <filter xpath="(not($ctx:uri.var.sysparmReadReplicaCategory = '' or (not(string($ctx:uri.var.sysparmReadReplicaCategory)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), 'sysparm_read_replica_category=', get-property('uri.var.sysparmReadReplicaCategory'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, 'sysparm_read_replica_category=', $ctx:uri.var.sysparmReadReplicaCategory, '&amp;')"/>
             </then>
         </filter>
-        <filter xpath="(not(get-property('uri.var.KeyValuePairs') = '' or (not(string(get-property('uri.var.KeyValuePairs'))))))">
+        <filter xpath="(not($ctx:uri.var.KeyValuePairs = '' or (not(string($ctx:uri.var.KeyValuePairs)))))">
             <then>
                 <property name="uri.var.apiParameters"
-                          expression="fn:concat(get-property('uri.var.apiParameters'), get-property('uri.var.KeyValuePairs'), '&amp;')"/>
+                          expression="fn:concat($ctx:uri.var.apiParameters, $ctx:uri.var.KeyValuePairs, '&amp;')"/>
             </then>
         </filter>
         <call>
